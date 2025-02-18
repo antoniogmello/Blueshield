@@ -1,0 +1,11 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/blueshie/index_html  
+    - /bin/node --version
+    - /bin/npm --version
+    - /bin/npm install
+    - /bin/npm run build      # Ou 'npm run generate' para Nuxt.js (SSG)
+    - /bin/rm -rf $DEPLOYPATH/*
+    - /bin/cp -r dist/* $DEPLOYPATH/  # Para Vue.js/Vite
+    # - /bin/cp -r output/public/* $DEPLOYPATH/  # Para Nuxt.js (SSG)
